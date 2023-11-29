@@ -1,0 +1,2630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Website Title</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+
+
+
+
+/* HEADER-------------------------------------------------------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+    background-color: #121212; /* Dark background for header */
+    color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+
+.hamburger-menu {
+    padding-left:9%;
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 30px;
+    z-index: 1001; /* Ensure it's above other elements */
+}
+
+.hamburger-menu .bar {
+    width: 90px;
+    height: 3px;
+    background-color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+#navbar {
+    position: fixed;
+    top: 0%;
+    left: -100%; /* Hidden initially */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: left 0.3s ease;
+}
+
+#navbar.active {
+    left: 0; /* Bring into view */
+}
+
+#navbar ul {
+    list-style: none;
+}
+
+#navbar ul li {
+    margin: 0px 0;
+}
+
+#navbar ul li a {
+    color: #FFFFFF;
+    text-decoration: none;
+    font-size: 1.5em;
+}
+
+.close-menu {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 30px;
+    color: #FFF;
+    cursor: pointer;
+}
+
+/* Desktop Style */
+@media (min-width: 769px) {
+    .hamburger-menu {
+        display: none;
+    }
+
+    #navbar {
+        position: static;
+        left: 0;
+        background-color: transparent;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #navbar ul {
+        display: flex;
+        padding: 0;
+    }
+
+    #navbar ul li {
+        margin: 0 10px;
+    }
+
+    #navbar ul li a {
+        color: #333;
+    }
+}
+
+/* Tablet and Mobile Style */
+@media (max-width: 768px) and (max-width: 1024px) {
+    .hamburger-menu {
+        display: flex;
+        
+
+    }
+}
+
+
+
+/* Header Logo and Logo Text Styles */
+.header-logo {
+  display: flex;
+  align-items: center;
+  padding: 0%;
+}
+
+/* Logo icon Styles */
+.logo-icon {
+  height: 100px; /* Adjust size as needed */
+  margin-right: 80px; /* Space between logo and text */
+}
+
+/* Header Logo Span */
+.header-logo span {
+  font-size: 1.5em; /* Size of the logo text */
+  font-weight: bold;
+  color: #053E93; /* White for the logo text for contrast */
+}
+
+
+.typewriter-container {
+    font-size: 1.5em; /* Adjust as needed */
+    color: #333; /* Text color */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px; /* Adjust as needed */
+}
+
+#domainText {
+    animation: fadeInOut 12s infinite;
+    opacity: 0;
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    25%, 75% { opacity: 1; }
+}
+
+.cursor {
+    margin-left: 5px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+
+#topHeaderBlue {
+    background-color: #053E93; /* Deep blue background */
+    color: #ffffff; /* White text */
+    padding: 10px 20px; /* Adjust as needed */
+    position: relative;
+    display: flex;
+    justify-content: space-between; /* Align title and slider */
+    align-items: center;
+}
+
+.header-content {
+    z-index: 2; /* Ensure text is above the images */
+}
+
+.header-title {
+    font-size: 1.8em;
+    margin: 0;
+    padding: 0;
+}
+
+.header-description {
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+}
+
+.image-slider {
+    position: relative;
+    width: 60%; /* Adjust based on your layout */
+    height: 100px; /* Adjust based on your images */
+    overflow: hidden;
+}
+
+.image-slider .slide {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure images cover the area */
+    transition: left 0.5s ease-in-out;
+    opacity: 0; /* Start images as invisible */
+}
+
+.image-slider .slide.active {
+    left: 0;
+    opacity: 1; /* Active image is visible and in place */
+}
+
+
+/* HEADERcloud Styles */
+#HEADERcloud {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  background: linear-gradient(-270deg, #053E93, #8EDCF8, #8EDCF8, #053E93); /* Gradient using Lighter Blue and Deep Blue */
+  animation: gradientBG 15s ease infinite;
+  border-bottom: 1px solid #F4F4F4; /* Light Grey border for subtle contrast */
+}
+
+#HEADERcloud h1 {
+  font-size: 2em;
+  color: #FFFFFF; /* White color for text */
+  margin: 0;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  #HEADERcloud h1 {
+      font-size: 1.5em; /* Smaller font size for mobile */
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+
+
+/* NAVBARGOLD-------------------------------------------------------------------------*/
+
+
+
+
+
+/* -------------------------------------------------------------------------*/
+/* BODY BEGIN */
+
+
+
+
+body, html {
+  background-color: #ffffff; /* White background for a clean look */
+  color: #053E93; /* Black color for text, ensuring readability */
+  font-family: 'Roboto', sans-serif; /* Roboto font for modern feel */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+}
+
+
+/* -------------------------------------------------------------------------*/
+/* TICKERTAPE*/
+
+/* Ticker Tape Container */
+
+
+
+
+/* Fluid and Smooth Ticker Tape */
+#ticker-tape {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollTicker 120s linear infinite;
+}
+
+
+/* Domain Icon Style */
+.domain-icon {
+  width: 26px;
+  height: 26px;
+  margin-right: 15px;
+}
+
+@keyframes scrollTicker {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-600%); }
+}
+
+
+/* -------------------------------------------------------------------------*/
+/* ImageGalleryBACKGROUND */
+    
+
+
+/* Image Gallery as Background */
+.homepage-section::before {
+
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0; /* Ensure it covers the entire width */
+  bottom: 0; /* Ensure it covers the entire height */
+  z-index: -1; /* Places the gallery behind the content */
+  background-size:contain; /* Ensure the background images cover the area */
+  background-position: center; /* Center the background images */
+  animation: slideBackground 9s linear infinite;
+}
+
+@keyframes slideBackground {
+  0%, 100% { background-image: url('image1.jpg'); }
+  33.33% { background-image: url('image2.jpg'); }
+  66.66% { background-image: url('image3.jpg'); }
+}
+
+
+
+/* Styles specific for the gorillaSplay section */
+
+/* Styles specific for the gorillaSplay section */
+#gorillaSplay {
+  background-color: #fff;
+  padding: 100px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius:3px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Adjust this to change the spacing */
+  gap: 15px;
+}
+
+.domain-container {
+  border: 3px solid #eee;
+  padding: 3px;
+  border-radius: 3px;
+  flex: 1; /* Ensures that the container can grow */
+  min-width: 50%; /* Minimum width for each container */
+  max-width: 100%; /* Maximum width for each container */
+}
+
+.domain-name {
+  font-weight: bold;
+}
+
+.domain-prices > div {
+  margin-right: 10px;
+}
+
+.domain-prices > div:last-child {
+  margin-right: 0;
+}
+
+/* Slider for mobile and tablet */
+@media (max-width: 768px) {
+  #gorillaSplay {
+    overflow-x: auto;
+    padding-bottom: 30px;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+  }
+
+  .domain-container {
+    flex: 0 0 auto; /* Prevents the containers from growing */
+    width: 100%; /* Adjust the width of the containers on mobile */
+    margin-right: 146px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  #gorillaSplay {
+    justify-content:center;
+    display: flex;
+    width: 100%;
+  }
+
+  .domain-container {
+    flex: 0 0 calc(50% - 15px); /* Two containers per row on tablet */
+  }
+}
+
+@media (min-width: 1025px) {
+  #gorillaSplay {
+    justify-content: center;
+    display: flex;
+    width: 33%;
+  }
+
+  .domain-container {
+    flex: 0 0 calc(33.333% - 15px); /* Three containers per row on desktop */
+  }
+}
+
+
+
+
+#interbannerstation {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.hero {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Arial', sans-serif;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+.hero button {
+    background-color: #053E93;
+    color: #8EDCF8;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.feature-row {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.feature {
+    text-align: center;
+    max-width: 300px;
+}
+
+.feature img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px #053E93;
+}
+
+.feature h2 {
+    font-size: 1.5em;
+    margin-top: 10px;
+}
+
+.feature p {
+    font-size: 1em;
+}
+
+@media (max-width: 768px) {
+    .feature-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .feature {
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+/* -------------------------------------------------------------------------*/
+/* GRABBABANNER */
+
+
+#grabbbaBANNER {
+   display: grid;
+   grid-template-columns: 2fr 1fr; /* Proportional division for layout */
+   gap: 9px;
+   margin-bottom: 30px;
+   padding: 3%;
+}
+
+.image-container img {
+   width: 100%;
+   height: auto;
+   border-radius: 10px; /* Rounded corners for aesthetic appeal */
+}
+
+.text-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   padding: 20px;
+   background-color:  #595959; /* Light Grey for text container background */
+   border-radius: 10px;
+   color: #5D7E9E; /* Dark Grey for text */
+}
+
+.text-container h2 {
+   font-size: 1.5em;
+   color:  #ffffff; /* Deep Blue for headings */
+   margin-bottom: 10px;
+}
+
+.text-container p {
+   font-size: 1em;
+   line-height: 1.5;
+   color: #ffffff; /* Dark Grey for paragraph text */
+}
+
+.triple-container {
+   display: flex;
+   justify-content: space-between;
+   gap: 10px;
+   grid-column: span 2; /* Extends across both columns */
+}
+
+.small-container {
+   flex: 1;
+   padding: 15px;
+   background-color: #053E93; /* Light Blue for small containers */
+   color: #ffffff;
+   text-align: center;
+   border-radius: 10px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+}
+
+
+
+/* -------------------------------*/
+
+
+
+/* TITLE SUBTITLE CONTAINER */
+.title-subtitle-container {
+  flex: 1;
+  padding: 20px;
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.8) ; /* Semi-transparent white */
+  margin: 10px;
+  z-index: 1;
+  color: #80a1c3; /* Dark Grey for text */
+}
+
+
+/* -------------------------------------------------------------------------*/
+/* CAROUSELCONTAINER */
+
+
+
+.carousel-container {
+  flex: 1;
+  padding: 3px;
+  margin: 30px;
+  border: 9px solid #ffffff; /* Light Blue border */
+  background-color: #ffffff; /* Light Grey background */
+}
+
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 30px;
+  align-items: center;
+}
+
+
+/* -------------------------------------------------------------------------*/
+/* IMAGE GALLERY */
+
+
+
+.image-gallery {
+  padding: 20px;
+  scrollbar-width: thin; /* Reduced scrollbar width */
+  overflow: hidden;
+  position: relative;
+  margin: 10px auto;
+  box-shadow: 0 4px 8px #053E93;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* Spacing between images */
+}
+
+
+.image-gallery img {
+  width: 100%;
+  max-width: 300px; /* Limit the image size */
+  vertical-align: top;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 10px; /* Rounded corners for images */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+.image-gallery .slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.image-gallery .slide.active {
+  opacity: 1;
+}
+
+
+/* -------------------------------------------------------------------------*/
+/* MARKKET OVERVIEW */
+
+/* Market Overview */
+.market-overview {
+  flex: 0 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px #053E93;
+  text-align: center;
+  min-width: 200px;
+  position: relative;
+}
+
+.market-overview:not(:last-child)::after {
+  content: '';
+  position: sticky;
+  right: 0px;
+  top: 0%;
+  bottom: 0%;
+  opacity: 0.9;
+}
+
+/* -------------------------------------------------------------------------*/
+/* DOMAIN STYLING */
+
+/* Domain Name Styling */
+/* Domain Name Styling */
+.domain-name {
+  font-weight: bold;
+  font-size: 15px;
+  color: #333333; /* Dark Grey for better readability */
+  margin-bottom: 6px;
+}
+
+/* ETH and USD Price Styling */
+.eth-price, .usd-price {
+  font-size: 12px;
+  color: #666666; /* Slightly lighter Grey for subtlety */
+  margin: 5px 0;
+}
+
+/* USD Price Specific Styling */
+.usd-price {
+  color: #4CAF50; /* Bright Green for USD price for emphasis */
+  font-weight: 300px;
+}
+
+@media (max-width: 768px) {
+  .domain-item {
+      padding: 3px;
+  }
+
+  .homepage-section {
+      flex-direction: column;
+  }
+
+  .market-overview {
+      min-width: 150px; /* Adjust width for smaller screens */
+  }
+
+  .carousel-container {
+      padding: 10px;
+  }
+}
+
+@media (min-width: 769px) {
+  .carousel {
+      justify-content: start;
+  }
+
+  .market-overview {
+      min-width: 250px; /* Increase width on larger screens */
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 769px) {
+  .carousel {
+      justify-content: start; /* Align items to the start */
+  }
+  .market-overview {
+      min-width: 250px; /* Increase width on larger screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .carousel-container {
+      padding: 10px;
+  }
+
+
+
+
+  .market-overview {
+      min-width: 150px; /* Adjust width for smaller screens */
+  }
+}
+
+
+/* -------------------------------------------------------------------------*/
+/* SLIDE SHOW CONTAINER */
+
+
+#slideshow-container {
+    color: #ffffff;
+   width: 100%;
+   display: block;
+   flex-wrap: nowrap;
+   position: relative;
+   background-color:  #ffffff; /* Light blue background for the slideshow container */
+   padding: 0px; /* Added padding for better spacing */
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.slide {
+
+   display: none; /* Hide all slides initially */
+   flex-wrap: wrap;
+   justify-content: center;
+   align-items: center;
+   margin-bottom: 20px; /* Added bottom margin for spacing between slides */
+   padding-top: 9%;
+}
+
+/* Display the first slide */
+.slide:first-child {
+   display: flex;
+}
+
+.container {
+   width: auto; /* Adjust based on requirement */
+   padding: 10px;
+   margin: 5px auto; /* Centered margin for aesthetic alignment */
+   text-align: center;
+   border: 1px solid #ffffff; /* Lighter blue border for contrast */
+   background-color: #336699; /* White background for the container */
+   border-radius: 10px; /* Rounded corners for a smoother look */
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+
+/* -------------------------------------------------------------------------*/
+/* Section 1 BEGIN */
+
+#section1 {
+
+  display: flex;
+  flex-wrap: wrap;
+  overflow: visible;
+  min-height: 100%;
+  padding-top: 7.2%; /* Adjusted padding */
+  padding-bottom: 90%;
+  justify-content: flex-start;
+  gap: 20px;
+  align-items: center;
+  margin: auto;
+  background-color: #595959; /* Light grey background */
+  color: #333333; /* Dark grey text */
+}
+
+
+
+.grid-item {
+   flex: 0 0 calc(25% - 40px);
+   margin: 10px;
+   padding: 15px;
+   border: 1px solid #E9F5FF; /* Light blue border */
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   text-align: center;
+   background-color: #ffffff; /* White background for contrast */
+   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover */
+}
+
+.grid-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Adjusted shadow for hover effect */
+}
+
+
+
+.domain-link {
+   display: block;
+   margin-bottom: 10px;
+   font-size: 18px;
+   color: #1E3A5F; /* Deep Blue for links */
+   text-decoration: none;
+}
+
+.price {
+   font-size: 16px;
+   line-height: 24px;
+}
+
+.original-price {
+   color: #999999; /* Light grey for original price */
+   text-decoration: line-through; /* Indicates original price */
+   margin-right: 5px;
+}
+
+.usd-price {
+   color: #4CAF50; /* Bright Green for USD price */
+   font-weight: bold;
+   font-size: 14px;
+}
+
+.matic-price {
+   font-size: 12px;
+}
+
+
+.grid-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+}
+
+
+@media (max-width: 768px) {
+  .grid-item {
+      width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid-item {
+      width: 100%;
+  }
+}
+
+@media (min-width: 1025px) {
+  .grid-item {
+      flex: 0 0 calc(25% - 40px);
+  }
+
+  #section1 {
+      justify-content: space-evenly;
+      height: auto;
+  }
+}
+
+
+
+/* -------------------------------------------------------------------------*/
+/* Section 1 BEGIN */
+
+
+
+#image-banner {
+   width: 100%;
+   text-align: center;
+   margin: 20px 0;
+   background-color: #E9F5FF; /* Light blue from the brand color palette */
+   padding: 10px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+}
+
+#banner-image {
+   max-width: 100%;
+   height: auto;
+   border-radius: 10px; /* Adds rounded corners for a softer look */
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds subtle shadow for depth */
+}
+
+
+/* -------------------------------------------------------------------------*/
+/* GRID ITEM BEGIN */
+
+
+.grid-item:hover {
+  transform: scale(1.03);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.15);
+}
+
+
+.grid-item {
+   width: calc(33.333% - 20px); /* Three items per row with some spacing */
+   margin: 0px;
+   padding: 5px;
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+   text-align: center;
+   background-color: #f9f9f9;
+}
+
+
+/* Media query for desktop screens */
+@media screen and (min-width: 1024px) {
+   .grid-item {
+       width: calc(25% - 20px); /* Four items per row on larger screens */
+       /* Adjust padding, margin, and other styles as needed */
+       padding: 10px; /* Slightly increased padding for better spacing */
+       margin: 10px; /* Margin to provide space between grid items */
+   }
+  
+}
+
+
+/* -------------------------------------------------------------------------*/
+/* Additional styles for section2 */
+
+#section2 {
+  display: flex; /* Changed from 'auto' to 'flex' for better alignment */
+  position: relative;
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px; /* Added padding for spacing */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #E9F5FF; /* Light blue background */
+}
+
+
+
+@keyframes imageFade {
+  0%, 100% { opacity: 0; }
+  6.25%, 25% { opacity: 1; }
+  31.25%, 50% { opacity: 0; }
+  56.25%, 75% { opacity: 1; }
+  81.25%, 100% { opacity: 0; }
+}
+
+
+
+.slider-img {
+  cursor: pointer; /* Indicates interactivity */
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.slider-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.slider-img:nth-child(1) { animation-delay: -13.5s; }
+.slider-img:nth-child(2) { animation-delay: -9s; }
+.slider-img:nth-child(3) { animation-delay: -4.5s; }
+.slider-img:nth-child(4) { animation-delay: 0s; }
+
+
+/* -------------------------------------------------------------------------*/
+/* OVERLAY-TEXT BEGIN */
+
+
+
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #FFFFFF; /* White for contrast */
+  text-align: center;
+  background-color: rgba(30, 58, 95, 0.7); /* Semi-transparent deep blue background */
+  padding: 15px; /* Padding for better text spacing */
+  border-radius: 10px; /* Rounded corners */
+}
+
+.overlay-text h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #E9F5FF; /* Light blue for a slight contrast */
+}
+
+.overlay-text p {
+  font-size: 18px;
+  color: #FFFFFF; /* Maintaining white for paragraph */
+}
+
+
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #FFFFFF; /* White text for readability */
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.6); /* Dark semi-transparent background */
+  padding: 20px; /* Padding for content */
+  border-radius: 10px; /* Rounded corners */
+}
+
+
+
+/* -------------------------------------------------------------------------*/
+/* pOLYGON BANNER */
+
+
+
+#POLYGONBANNER {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   align-items: center;
+   gap: 20px;
+   padding: 20px;
+   background-color: #E9F5FF; /* Adjusted to Light Blue from brand palette */
+}
+
+.polygon-image-container img {
+   width: 100%;
+   border-radius: 10px;
+}
+
+.polygon-text-container h2 {
+   font-size: 2em;
+   color: #1E3A5F; /* Adjusted to Deep Blue for consistency */
+}
+
+.polygon-text-container p {
+   font-size: 1em;
+   color: #333333; /* Adjusted to Dark Grey for readability */
+}
+
+.polygon-feature-container {
+   display: flex;
+   justify-content: space-between;
+   padding-top: 20px;
+}
+
+.feature-box {
+   flex: 1;
+   margin: 0 10px;
+   padding: 20px;
+   background-color: #F4F4F4; /* Light Grey for feature boxes */
+   text-align: center;
+   border-radius: 8px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+   #POLYGONBANNER {
+       grid-template-columns: 1fr; /* Single column layout on smaller screens */
+   }
+
+   .polygon-feature-container {
+       flex-direction: column; /* Stack features vertically on smaller screens */
+   }
+}
+
+/* -------------------------------------------------------------------------*/
+
+
+/* -------------------------------------------------------------------------*/
+/* Section DOMAIN BEGIN */
+/* Domain Section */
+
+
+
+.info-section {
+  background-color: #D3D3D3; /* Light Gray Background */
+  color: #000000; /* Black Text */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  font-family: 'Roboto', sans-serif;
+}
+
+.info-block {
+  background: #ffffff; /* Solid white background */
+  border-radius: 8px; /* Softer rounded corners */
+  padding: 10px; /* Reduced padding */
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+}
+
+/* Image Styles */
+.info-image {
+  max-width: 100px; /* Smaller image size */
+  margin: 10px auto; /* Centering image with top and bottom margin */
+  display: block;
+}
+
+/* Title Styles */
+.info-title {
+  color: #333333; /* Dark grey for contrast */
+  font-size: 1rem; /* Slightly larger font size */
+  font-weight: bold; /* Bold for emphasis */
+  margin: 5px 0; /* Reduced margin */
+}
+
+/* Description Styles */
+.info-description {
+  color: #000000;
+  font-size: 0.8rem; /* Smaller font for description */
+  margin-bottom: 10px; /* Reduced bottom margin */
+}
+
+/* Button Styles */
+.info-button {
+  display: inline-block; /* Align buttons inline */
+  padding: 8px 15px; /* Adjusted padding for buttons */
+  background: linear-gradient(95deg, #000000, #d0f6ff); /* Gradient background */
+  color: #ffffff; /* White text */
+  text-decoration: none;
+  border-radius: 15px; /* Rounded corners for buttons */
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: 0.85rem; /* Smaller font size for button */
+}
+
+.info-button:hover {
+  background-color: #000000; /* Darker background on hover */
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Mobile Devices */
+@media (max-width: 768px) {
+   .header-nav {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      background-color: #007bff;
+      position: absolute;
+      top: 50px;
+      left: 0;
+      width: 100%;
+  }
+  .header-nav.active {
+      display: flex;
+  }
+  .header-button {
+      display: block;
+      margin: 10px 0;
+  }
+  header {
+      padding: 20px 0;
+  }
+
+
+
+
+/* -------------------------------------------------------------------------*/
+/* MEDIA QUERIES GRID ITEMS BEGIN */
+/* Styling for individual grid items */
+.grid-item {
+  flex: 0 0 auto; /* Flex items don't grow but can shrink and maintain their original width */
+  min-width: 200px; /* Minimum width for each item */
+  padding: 20px; /* Padding inside each grid item */
+  margin-right: 10px; /* Space between items */
+  box-shadow: 0 4px 10px #fff; /* Optional: Adds a subtle shadow for depth */
+  border-radius: 10px; /* Rounded corners */
+}
+.grid-item a {
+  font-size: 16px; /* Font size for domain links */
+  text-decoration: none; /* Remove underline */
+  color: #000000; /* Link color */
+}
+
+
+
+
+/* Styling for the domain links and icons */
+.domain-item a, .grid-item a {
+  font-size: 14px; /* Smaller font size for mobile */
+}
+
+
+
+
+.domain-icon {
+  width: 20px; /* Smaller icon size for mobile */
+  height: 20px;
+}
+
+
+
+
+.domain-icon {
+   width: 24px; /* Adjust icon size */
+  height: 24px;
+}
+
+
+
+
+/* -------------------------------------------------------------------------*/
+
+
+
+
+/* MEDIA QUERIES Ticker-tape container adjustment for mobile */
+#ticker-tape-container {
+  padding: 5px;
+}
+
+
+
+
+/* -------------------------------------------------------------------------*/
+/* MEDIA QUERIES MOBILE __________________*/
+#section1 {
+  display: flex; /* Use flexbox layout */
+  flex-wrap: nowrap; /* Prevent wrapping on mobile */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  align-items: center; /* Vertically center items */
+  gap: 20px; /* Spacing between items */
+  padding: 20px 0px; /* Padding above and below */
+  margin: 0 auto; /* Center the section */
+  width: 100%; /* Full width */
+}
+  /* Styles for Section 2 in mobile view */
+  #section2 {
+      padding: 30px;
+      margin: 30px auto;
+  }
+  #toggleFormButton {
+      padding: 10px 20px;
+  }
+  #section2 h2 {
+      font-size: 24px;
+  }
+}
+
+/* Tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Adjust styles for tablet devices */
+  #section1 {
+  display: flex; /* Use flexbox layout */
+  flex-wrap: nowrap; /* Prevent wrapping on mobile */
+  overflow-y: hidden; /* Enable horizontal scrolling */
+  align-items: center; /* Vertically center items */
+  gap: 0px; /* Spacing between items */
+  padding: 20px 20px; /* Padding above and below */
+  margin: 0 auto; /* Center the section */
+  width: 100%; /* Full width */
+  max-height: 500px;
+}
+
+
+
+
+}
+
+/* -------------------------------------------------------------------------*/
+/* SGRIDD ITEM */
+
+
+
+.grid-item {
+  overflow: hidden;
+  flex: 0 0 auto; /* Ensures that items maintain their size */
+  min-width: 250px; /* Minimum width for each item */
+  margin-right: 10px; /* Space between items */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Subtle shadow for depth */
+  border-radius: 10px; /* Rounded corners for a modern look */
+  background-color: #ffffff; /* White background for a clean look */
+  padding: 15px; /* Padding inside each item for spacing */
+  /* Additional styling if needed */
+}
+
+.domain-item a, .grid-item a {
+  font-size: 16px; /* Suitable font size for readability */
+  color: #1E3A5F; /* Deep Blue for consistency with the theme */
+  text-decoration: none; /* Removes underline from links */
+  transition: color 0.3s ease; /* Smooth transition for hover effects */
+}
+
+.domain-item a:hover, .grid-item a:hover {
+  color: #4CAF50; /* Bright Green for hover effect */
+}
+
+
+@media (min-width: 1025px) {
+
+/* Styles for desktops */
+#section1 {
+  flex-wrap: wrap; /* Allow wrapping for two rows */
+  overflow-y: hidden; /* Disable vertical scrolling */
+  max-height: 500px; /* Adjust based on content */
+}
+/* Styling for individual grid items */
+.grid-item {
+  flex: 0 0 auto; /* Flex items don't grow but can shrink */
+  min-width: 200px; /* Minimusm width for each item */
+  margin-right: 10px; /* Space between items */
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15); /* Optional shadow */
+  border-radius: 10px; /* Rounded corners */
+  /* Additional styling */
+}
+}
+
+
+
+
+/* -------------------------------------------------------------------------*/
+/* AFFORDABLE DOMAINS */
+
+
+#AFFORDABLEDOMAINS {
+   padding: 40px;
+   background-color: #E9F5FF; /* Adjusted to light blue to align with brand colors */
+   text-align: center;
+}
+
+.affordable-header h2 {
+   color: #1E3A5F; /* Adjusted to deep blue for consistency with the theme */
+   font-size: 2em;
+   margin-bottom: 20px;
+}
+
+.affordable-header p {
+   color: #333333; /* Dark grey for readability */
+   font-size: 1.2em;
+   max-width: 80%;
+   margin: auto;
+}
+
+.affordable-domain-list {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+   gap: 20px;
+   justify-content: center;
+   margin-top: 30px;
+}
+
+.domain-item {
+   padding: 20px;
+   background-color: #ffffff; /* White background for a clean look */
+   border: 1px solid #ddd;
+   border-radius: 12px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+   margin: 10px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.domain-item:hover {
+   transform: translateY(-10px);
+   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.affordable-image-container img {
+   width: 100%;
+   height: auto;
+   border-radius: 10px;
+
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) { /* Tablet */
+   .affordable-domain-list {
+       grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust for tablet layout */
+   }
+
+
+   .affordable-text-container h2, .affordable-text-container p {
+       font-size: 1.5em; /* Adjust font size for tablet */
+   }
+
+
+   .domain-item {
+       padding: 20px;
+   }
+}
+
+@media (max-width: 480px) { /* Mobile */
+   .affordable-domain-list {
+       grid-template-columns: 1fr; /* Single column layout */
+   }
+
+
+   .affordable-text-container h2, .affordable-text-container p {
+       font-size: 1.3em; /* Adjust font size for mobile */
+   }
+
+
+   .domain-box {
+       margin: 5px; /* Adjust margins for mobile */
+       padding: 15px;
+   }
+
+
+   .domain-item {
+       padding: 15px;
+   }
+}
+
+</style>
+
+
+
+
+
+
+
+
+
+<header>
+    <div class="hamburger-menu" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <nav id="navbar">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <!-- More menu items here -->
+        </ul>
+        <span class="close-menu" onclick="toggleMenu()">X</span>
+    </nav>
+</header>
+
+
+
+
+<div id="HEADERcloud">
+  
+  <!-- Additional content can go here -->
+</div>
+<title>Typewriter Effect</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+  <div class="typewriter-container">
+      <span id="text"></span>
+      <span class="cursor"></span>
+  </div>
+  <script src="script.js"></script>
+<div class="header-logo">
+  <img src="BlueBoxMini Icon Logo.png" alt="Domain Outlet Logo" class="logo-icon">
+  <span>Dombit.io <div>Dombit.eth</div><div class="typewriter-container">
+      <span id="text"></span>
+      <span class="cursor"></span>
+  </div></span>
+ </div>
+
+ 
+<body>
+
+    
+    <section id="topHeaderBlue">
+        <div class="header-content">
+            <h1 class="header-title">Welcome to Dombit</h1>
+            <p class="header-description">Showcasing the best on the secondary market</p>
+        </div>
+        <div class="image-slider">
+            <!-- Slider Images -->
+            <img src="image1.jpg" alt="Image 1" class="slide">
+            <img src="image2.jpg" alt="Image 2" class="slide">
+            <!-- Add more images as needed -->
+        </div>
+    </section>
+
+
+<!--SLIDING DOMAINS TICKER TAPE-------------------->
+  <div id="ticker-tape-container">
+      <div id="ticker-tape">
+          <!-- Each domain is now a clickable link -->
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">angulate.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">zenithwave.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">metaworldmuseum.x</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">0xsend.x</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">openread.crytpo</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">808x.hi</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">apivertex.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">1-send.wallet</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">thewhale.hi</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">zenithwave.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">zenithtech.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">web3edge.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">z-send.wallet</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">abc-send.wallet</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">clubcasino.888</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">blockfacet.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">angulate.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">angulate.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">zenithwave.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">metaworldmuseum.x</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">0xsend.x</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">openread.crytpo</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">808x.hi</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">apivertex.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">1-send.wallet</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">thewhale.hi</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">zenithwave.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">zenithtech.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">web3edge.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">z-send.wallet</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">abc-send.wallet</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">clubcasino.888</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">blockfacet.polygon</a></span>
+          <span class="domain-item"><a href="#" target="_blank"><img src="BlueBoxMini Icon Logo.png" class="domain-icon">angulate.polygon</a></span>
+          <!-- ... Continue adding more domain items in the same format ... -->
+      </div>
+  </div>
+</div>
+
+
+
+<section id="interbannerstation">
+    <div class="hero">
+    
+    </div>
+    <div class="feature-row">
+        <div class="feature">
+            <img src="Blue Circle Certified.png" alt="Feature 1">
+            <h2>gptlearning.x</h2>
+            <p>Premo</p>
+            <div class="domain-prices">
+                <div class="eth-price">9 ETH</div>
+                <div class="matic-price">MATIC_AMOUNT</div>
+                <div class="usd-price">$USD_PRICE</div>
+              </div>
+        </div>
+        <div class="feature">
+            <img src="Blue Circle Certified.png" alt="Feature 2">
+            <h2>metaworldmuseum.x</h2>
+            <p>Premo</p>
+            <div class="domain-prices">
+                <div class="eth-price">9 ETH</div>
+                <div class="matic-price">MATIC_AMOUNT</div>
+                <div class="usd-price">$USD_PRICE</div>
+              </div>
+        </div>
+        <div class="feature">
+            <img src="Blue Circle Certified.png" alt="Feature 3">
+            <h2>travelgames.go</h2>
+            <p>Premo</p>
+            <div class="domain-prices">
+                <div class="eth-price">9 ETH</div>
+                <div class="matic-price">MATIC_AMOUNT</div>
+                <div class="usd-price">$USD_PRICE</div>
+              </div>
+        </div>
+        
+    </div>
+</section>
+
+
+<section id="gorillaSplay">
+    <div class="image-gallery">
+        <!-- Small horizontal images -->
+        <img src="BlueBox.png" alt="Innovative Technology">
+        <img src="BlueCircleCertified.png" alt="">
+        <!-- More images can be added here -->
+    </div>
+    
+        <!-- First Row of Domains -->
+    </div>
+        <!-- Second Row of Domains -->
+        <div class="domain-row">
+            <div class="domain-container">
+                <div class="domain-name">blockchainbuzz.eth</div>
+                <div class="domain-prices">
+                    <div class="eth-price">4.2 ETH</div>
+                    <div class="matic-price">1650 MATIC</div>
+                    <div class="usd-price">$5400 USD</div>
+                </div>
+            </div>
+            <div class="domain-container">
+                <div class="domain-name">cryptoconnect.eth</div>
+                <div class="domain-prices">
+                    <div class="eth-price">3.1 ETH</div>
+                    <div class="matic-price">1225 MATIC</div>
+                    <div class="usd-price">$4000 USD</div>
+                </div>
+            </div>
+            <div class="domain-container">
+                <div class="domain-name">futurevision.eth</div>
+                <div class="domain-prices">
+                    <div class="eth-price">2.8 ETH</div>
+                    <div class="matic-price">1100 MATIC</div>
+                    <div class="usd-price">$3600 USD</div>
+                </div>
+        </div>
+        </div>
+        <!-- Second Row of Domains -->
+        <div class="domain-row">
+            <div class="domain-container">
+                <div class="domain-name">blockchainbuzz.eth</div>
+                <div class="domain-prices">
+                    <div class="eth-price">4.2 ETH</div>
+                    <div class="matic-price">1650 MATIC</div>
+                    <div class="usd-price">$5400 USD</div>
+                </div>
+            </div>
+            <div class="domain-container">
+                <div class="domain-name">cryptoconnect.eth</div>
+                <div class="domain-prices">
+                    <div class="eth-price">3.1 ETH</div>
+                    <div class="matic-price">1225 MATIC</div>
+                    <div class="usd-price">$4000 USD</div>
+                </div>
+            </div>
+            <div class="domain-container">
+                <div class="domain-name">futurevision.eth</div>
+                <div class="domain-prices">
+                    <div class="eth-price">2.8 ETH</div>
+                    <div class="matic-price">1100 MATIC</div>
+                    <div class="usd-price">$3600 USD</div>
+                </div>
+    </div>
+    
+
+</section>
+
+
+    <!-- Add more domain items here -->
+  </section>
+ 
+
+
+      
+    <!-- Add more domain items here -->
+
+   
+
+      
+    <!-- Add more domain items here -->
+  </section>
+  
+
+  <div id="slideshow-container">
+   <!-- Slide 1 -->
+   <div class="slide">
+       <div class="container">Buy 1 domain get 1 free sub-domain</div>
+       <!-- Repeat the container 8 more times -->
+   </div>
+
+
+   <!-- Slide 2 -->
+   <div class="slide">
+       <div class="container">Buy 6 domains get 15% off</div>
+       <!-- Repeat the container 8 more times -->
+   </div>
+
+
+   <!-- Slide 3 -->
+   <div class="slide">
+       <div class="container">...</div>
+       <!-- Repeat the container 8 more times -->
+   </div>
+</div>
+<div id="slideshow-container">
+   <!-- Slide 1 -->
+   <div class="slide">
+       <div class="container">.Polygon outlet starting at 10% off</div>
+       <!-- Repeat the container 8 more times -->
+   </div>
+
+
+   <!-- Slide 2 -->
+   <div class="slide">
+       <div class="container">@UxDomains.x</div>
+       <!-- Repeat the container 8 more times -->
+   </div>
+
+
+   <!-- Slide 3 -->
+   <div class="slide">
+       <div class="container">Buy 10 domains, get 15 sub-domains + 15% off</div>
+       <!-- Repeat the container 8 more times -->
+   </div>
+</div>
+
+
+
+
+<section id="grabbbaBANNER">
+   <!-- Image Container -->
+   <div class="image-container">
+       <img src="path-to-your-image.jpg" alt="Image Description">
+   </div>
+
+
+   <!-- Title and Description Container -->
+   <div class="text-container">
+       <h2>Title Here</h2>
+       <p>Description goes here. Keep it engaging and concise.</p>
+   </div>
+
+
+   <!-- Three Smaller Containers -->
+   <div class="triple-container">
+       <div class="small-container">Buy</div>
+       <div class="small-container">Sell</div>
+       <div class="small-container">Learn More</div>
+   </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="homepage-section">
+      <!-- Title and Subtitle Section -->
+      <div class="title-subtitle-container">
+       <h1>Decentralized Domains</h1>
+       <div class="typewriter-container">
+           <span id="typewriter-text"></span>
+           <span class="cursor"></span>
+       </div>
+   </div>
+        
+      <!-- Carousel Container for Domains -->
+      <div class="carousel-container">
+          <div class="carousel-container">
+              <div class="carousel">
+                  <!-- Repeat this block 18 times -->
+                  <div class="market-overview">
+                      <div class="domain-item">
+                          <div class="domain-name">travelgames.go</div>
+                          <div class="eth-price">2.7 ETH</div>
+                          <div class="usd-price">Loading...</div>
+                      </div>
+                      <div class="domain-item">
+                        <div class="domain-name">domainoutlet.x</div>
+                        <div class="eth-price">1.8 ETH</div>
+                        <div class="usd-price">Loading...</div>
+                    </div>
+                      <!-- More domain items here -->
+                      <div class="domain-item">
+                          <div class="domain-name">domainbuy.go</div>
+                          <div class="eth-price"> .15 ETH</div>
+                          <div class="usd-price">Loading...</div>
+                  </div>
+                  <!-- ... -->
+                  <div class="domain-item">
+                          <div class="domain-name">domainxyz.x</div>
+                          <div class="eth-price">.513 ETH</div>
+                          <div class="usd-price">Loading...</div>
+              </div>
+              <div class="domain-item">
+                  <div class="domain-name">domainxyz.go</div>
+                  <div class="eth-price"> .54 ETH</div>
+                  <div class="usd-price">Loading...</div>
+          </div>
+          
+      <div class="domain-item">
+          <div class="domain-name">0xtransport.crypto</div>
+          <div class="eth-price"> .039 ETH</div>
+          <div class="usd-price">Loading...</div>
+      </div>
+          </div>
+          <div class="market-overview">
+              <div class="domain-item">
+                  <div class="domain-name">club-send.x</div>
+                  <div class="eth-price">.045 ETH</div>
+                  <div class="usd-price">Loading...</div>
+              </div>
+              <!-- More domain items here -->
+              <div class="domain-item">
+                  <div class="domain-name">0x-send.wallet</div>
+                  <div class="eth-price"> .02 ETH</div>
+                  <div class="usd-price">Loading...</div>
+          </div>
+          <!-- ... -->
+          <div class="domain-item">
+                  <div class="domain-name">0xsend.x</div>
+                  <div class="eth-price">.033 ETH</div>
+                  <div class="usd-price">Loading...</div>
+      </div>
+      <div class="domain-item">
+          <div class="domain-name">superman-send.wallet</div>
+          <div class="eth-price"> .054 ETH</div>
+          <div class="usd-price">Loading...</div>
+  </div>
+  <div class="domain-item">
+      <div class="domain-name">spiderman-send.wallet</div>
+      <div class="eth-price"> .072 ETH</div>
+      <div class="usd-price">Loading...</div>
+</div>
+<div class="domain-item">
+  <div class="domain-name">batman-send.wallet</div>
+  <div class="eth-price"> .09 ETH</div>
+  <div class="usd-price">Loading...</div>
+</div>
+  </div>
+
+
+
+
+   <div class="market-overview">
+      <div class="domain-item">
+          <div class="domain-name">clubcasino.888</div>
+          <div class="eth-price">3 ETH</div>
+          <div class="usd-price">Loading...</div>
+      </div>
+      <!-- More domain items here -->
+      <div class="domain-item">
+          <div class="domain-name">playslot.888</div>
+          <div class="eth-price"> 3 ETH</div>
+          <div class="usd-price">Loading...</div>
+  </div>
+  <!-- ... -->
+  <div class="domain-item">
+          <div class="domain-name">richape33.x</div>
+          <div class="eth-price">.03 ETH</div>
+          <div class="usd-price">Loading...</div>
+</div>
+<div class="domain-item">
+  <div class="domain-name">richgoat.wallet</div>
+  <div class="eth-price"> .9 ETH</div>
+  <div class="usd-price">Loading...</div>
+</div>
+<div class="domain-item">
+<div class="domain-name">trustant.wallet</div>
+<div class="eth-price"> .03 ETH</div>
+<div class="usd-price">Loading...</div>
+</div>
+<div class="domain-item">
+<div class="domain-name">02022.dao</div>
+<div class="eth-price"> .003 ETH</div>
+<div class="usd-price">Loading...</div>
+</div>
+</div>
+
+
+
+
+<div class="market-overview">
+  <div class="domain-item">
+      <div class="domain-name">openread.go<openread class="go"></openread></div>
+      <div class="eth-price">.72 ETH</div>
+      <div class="usd-price">Loading...</div>
+  </div>
+  <!-- More domain items here -->
+  <div class="domain-item">
+      <div class="domain-name">openread.crypto</div>
+      <div class="eth-price"> .63 ETH</div>
+      <div class="usd-price">Loading...</div>
+</div>
+<!-- ... -->
+<div class="domain-item">
+      <div class="domain-name">0xshield.go</div>
+      <div class="eth-price">.9 ETH</div>
+      <div class="usd-price">Loading...</div>
+</div>
+<div class="domain-item">
+<div class="domain-name">domainxyz.blockchain</div>
+<div class="eth-price"> .54 ETH</div>
+<div class="usd-price">Loading...</div>
+</div>
+<div class="domain-item">
+<div class="domain-name">0xtrading.go</div>
+<div class="eth-price"> .45 ETH</div>
+<div class="usd-price">Loading...</div>
+</div>
+<div class="domain-item">
+<div class="domain-name">netsurf.go</div>
+<div class="eth-price"> 6 ETH</div>
+<div class="usd-price">Loading...</div>
+</div>
+</div>
+<div class="market-overview">
+  <div class="domain-item">
+      <div class="domain-name">soundjpeg.nft</div>
+      <div class="eth-price">.25 ETH</div>
+      <div class="usd-price">Loading...</div>
+  </div>
+  <!-- More domain items here -->
+  <div class="domain-item">
+      <div class="domain-name">unrealgaming.go</div>
+      <div class="eth-price"> 4.5 ETH</div>
+      <div class="usd-price">Loading...</div>
+</div>
+<!-- ... -->
+<div class="domain-item">
+      <div class="domain-name">tokenfind.go</div>
+      <div class="eth-price">.081 ETH</div>
+      <div class="usd-price">Loading...</div>
+</div>
+<div class="domain-item">
+<div class="domain-name">0xbroadcast.crypto</div>
+<div class="eth-price"> .054 ETH</div>
+<div class="usd-price">Loading...</div>
+</div>
+<div class="domain-item">
+<div class="domain-name">0xconnect.go</div>
+<div class="eth-price"> .72 ETH</div>
+<div class="usd-price">Loading...</div>
+</div>
+<div class="domain-item">
+<div class="domain-name">0xpunky.nft</div>
+<div class="eth-price"> .021 ETH</div>
+<div class="usd-price">Loading...</div>
+</div>
+</div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
+
+  
+
+
+
+
+
+
+      <div id="image-banner">
+       <img src="Unleash the Magic of Your Event (2).png" alt="Banner Image Description" id="banner-image">
+       <!-- Replace 'path-to-your-image.jpg' with the actual path to your image -->
+   </div>
+
+
+   <section id="POLYGONBANNER">
+       <!-- Image Container -->
+       <div class="polygon-image-container">
+           <img src="path-to-your-image.jpg" alt="Polygon Themed Image">
+       </div>
+
+
+
+
+       <section id="AFFORDABLEDOMAINS">
+           <div class="affordable-header">
+               <h2>Affordable Domains Under $9</h2>
+               <p>Explore our selection of budget-friendly domains to kickstart your online presence.</p>
+           </div>
+           <div class="affordable-domain-list">
+               <div class="domain-item">Domain1.xyz</div>
+               <div class="domain-item">Domain2.xyz</div>
+               <div class="domain-item">Domain3.xyz</div>
+               <!-- More domain items can be added here -->
+           </div>
+       </section>
+  
+  
+       <!-- Title and Description Container -->
+       <div class="polygon-text-container">
+           <h2>Polygon Ecosystem</h2>
+           <p>Explore the endless possibilities within the Polygon network.</p>
+       </div>
+  
+       <!-- Feature Containers -->
+       <div class="polygon-feature-container">
+           <div class="feature-box">Empty realestate. Contact uxd.domains@domain.x <div class="price">
+            <span class="original-price matic-price">360 matic</span>
+            <span class="usd-price">Loading...</span></div>
+            <div class="feature-box">Empty realestate. Contact uxd.domains@domain.x <div class="price">
+                <span class="original-price matic-price">360 matic</span>
+                <span class="usd-price">Loading...</span></div>
+                <div class="feature-box">Empty realestate. Contact uxd.domains@domain.x <div class="price">
+                    <span class="original-price matic-price">360 matic</span>
+                    <span class="usd-price">Loading...</span></div>
+       </div>
+   </section>
+  
+
+
+  <div id="section1">
+      <!-- Domain item 1 -->
+      <div class="grid-item">
+       <a href="https://apivertex.polygon" target="_blank" class="domain-link"></a>
+       <div class="price">
+           <span class="original-price matic-price">360 matic</span>
+           <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+       </div>
+   </div>
+      <div class="grid-item">
+          <a href="https://apivertex.polygon" target="_blank" class="domain-link">web3edge.polygon</a>
+          <div class="price">
+              <span class="original-price matic-price">102 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+             
+             
+          </div>
+      </div>
+      <div class="grid-item">
+          <a href="https://apivertex.polygon" target="_blank" class="domain-link">retropulse.polygon</a>
+          <div class="price">
+              <span class="original-price matic-price">180 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <div class="grid-item">
+          <a href="https://apivertex.polygon" target="_blank" class="domain-link">quantumplane.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">90 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <div class="grid-item">
+          <a href="https://apivertex.polygon" target="_blank" class="domain-link">stellarnexus.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">45 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <div class="grid-item">
+          <a href="https://apivertex.polygon" target="_blank" class="domain-link">smartstaking.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">4500 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <div class="grid-item">
+          <a href="https://apivertex.polygon" target="_blank" class="domain-link">quantumzen.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">45 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <div class="grid-item">
+          <a href="https://apivertex.polygon" target="_blank" class="domain-link">stellarlogic.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">72 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <div class="grid-item">
+          <a href="https://apivertex.polygon" target="_blank" class="domain-link">ethereclipse.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">33 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <div class="grid-item">
+          <a href="https://apivertex.polygon" target="_blank" class="domain-link">ethergrid.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">270 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+    
+      <div class="grid-item">
+          <a href="https://apivertex.polygon" target="_blank" class="domain-link">polyvibe.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">300 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <!-- Domain item 2 -->
+      <div class="grid-item">
+          <a href="https://cybergrid.polygon" target="_blank" class="domain-link">polycapital.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">981 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+       <!-- Domain item 3 -->
+      <div class="grid-item">
+          <a href="https://devbuild.polygon" target="_blank" class="domain-link">planelogic.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">330 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+       <!-- Domain item 4 -->
+      <div class="grid-item">
+          <a href="https://zenithlogic.polygon" target="_blank" class="domain-link">zenithlogic.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">300 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+       <!-- Domain item 5 -->
+      <div class="grid-item">
+          <a href="https://blockboss.polygon" target="_blank" class="domain-link">blockboss.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">180 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+       <!-- Domain item 6 -->
+      <div class="grid-item">
+          <a href="https://stellarnebula.polygon" target="_blank" class="domain-link">ultrafacet.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">2000 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <!-- Domain item 6 -->
+      <div class="grid-item">
+          <a href="https://stellarnebula.polygon" target="_blank" class="domain-link">novavertex.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">720 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <!-- Domain item 6 -->
+      <div class="grid-item">
+          <a href="https://stellarnebula.polygon" target="_blank" class="domain-link">nebulatech.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">120 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <!-- Domain item 6 -->
+      <div class="grid-item">
+          <a href="https://stellarnebula.polygon" target="_blank" class="domain-link">galacticedge.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">180 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+      </div>
+      <!-- Domain item 6 -->
+      <div class="grid-item">
+          <a href="https://stellarnebula.polygon" target="_blank" class="domain-link">gitpolygon.polygon</a>
+          <div class="price">
+           <span class="original-price matic-price">45 matic</span>
+              <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+          </div>
+    </div>
+    <!-- Domain item 1 -->
+    <div class="grid-item">
+     <a href="https://apivertex.polygon" target="_blank" class="domain-link">apivertex.polygon</a>
+     <div class="price">
+         <span class="original-price matic-price">360 matic</span>
+         <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+     </div>
+ </div>
+    <div class="grid-item">
+        <a href="https://apivertex.polygon" target="_blank" class="domain-link">web3edge.polygon</a>
+        <div class="price">
+            <span class="original-price matic-price">102 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <div class="grid-item">
+        <a href="https://apivertex.polygon" target="_blank" class="domain-link">retropulse.polygon</a>
+        <div class="price">
+            <span class="original-price matic-price">180 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <div class="grid-item">
+        <a href="https://apivertex.polygon" target="_blank" class="domain-link">quantumplane.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">90 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <div class="grid-item">
+        <a href="https://apivertex.polygon" target="_blank" class="domain-link">stellarnexus.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">45 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <div class="grid-item">
+        <a href="https://apivertex.polygon" target="_blank" class="domain-link">smartstaking.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">4500 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <div class="grid-item">
+        <a href="https://apivertex.polygon" target="_blank" class="domain-link">quantumzen.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">45 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <div class="grid-item">
+        <a href="https://apivertex.polygon" target="_blank" class="domain-link">stellarlogic.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">72 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <div class="grid-item">
+        <a href="https://apivertex.polygon" target="_blank" class="domain-link">ethereclipse.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">33 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <div class="grid-item">
+        <a href="https://apivertex.polygon" target="_blank" class="domain-link">ethergrid.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">270 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+  
+    <div class="grid-item">
+        <a href="https://apivertex.polygon" target="_blank" class="domain-link">polyvibe.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">300 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <!-- Domain item 2 -->
+    <div class="grid-item">
+        <a href="https://cybergrid.polygon" target="_blank" class="domain-link">polycapital.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">981 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+     <!-- Domain item 3 -->
+    <div class="grid-item">
+        <a href="https://devbuild.polygon" target="_blank" class="domain-link">planelogic.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">330 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+     <!-- Domain item 4 -->
+    <div class="grid-item">
+        <a href="https://zenithlogic.polygon" target="_blank" class="domain-link">zenithlogic.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">300 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+     <!-- Domain item 5 -->
+    <div class="grid-item">
+        <a href="https://blockboss.polygon" target="_blank" class="domain-link">blockboss.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">180 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+     <!-- Domain item 6 -->
+    <div class="grid-item">
+        <a href="https://stellarnebula.polygon" target="_blank" class="domain-link">ultrafacet.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">2000 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <!-- Domain item 6 -->
+    <div class="grid-item">
+        <a href="https://stellarnebula.polygon" target="_blank" class="domain-link">novavertex.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">720 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <!-- Domain item 6 -->
+    <div class="grid-item">
+        <a href="https://stellarnebula.polygon" target="_blank" class="domain-link">nebulatech.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">120 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+    <!-- Domain item 6 -->
+    <div class="grid-item">
+        <a href="https://stellarnebula.polygon" target="_blank" class="domain-link">galacticedge.polygon</a>
+        <div class="price">
+         <span class="original-price matic-price">180 matic</span>
+            <span class="usd-price">Loading...</span> <!-- USD price placeholder -->
+        </div>
+    </div>
+  </div>
+ </div>
+
+
+  
+  
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+</body>
+
+
+
+
+
+
+<script>function toggleMenu() {
+    var navbar = document.getElementById('navbar');
+    navbar.classList.toggle('active');
+}
+
+// Close the menu when a link is clicked
+document.querySelectorAll('#navbar ul li a').forEach(link => {
+    link.addEventListener('click', function() {
+        var navbar = document.getElementById('navbar');
+        navbar.classList.remove('active');
+    });
+});
+
+</script>
+
+<script>
+
+
+
+
+
+const domains = ['Dombit.io', 'Dombit.eth', 'AnotherDomain.com']; // Add more domains as needed
+let currentDomainIndex = 0;
+
+function changeDomainText() {
+    const domainTextElement = document.getElementById('domainText');
+    domainTextElement.style.opacity = 0; // Fade out the current text
+    setTimeout(() => {
+        currentDomainIndex = (currentDomainIndex + 1) % domains.length;
+        domainTextElement.textContent = domains[currentDomainIndex];
+        domainTextElement.style.opacity = 1; // Fade in the new text
+    }, 6000); // Time for the fade-out to complete
+}
+
+setInterval(changeDomainText, 12000); // Change the domain every 12 seconds
+
+
+function toggleMenu() {
+    var navbar = document.getElementById("navbar");
+    navbar.classList.toggle("active");
+}
+
+document.addEventListener('click', function(event) {
+    var navbar = document.getElementById("navbar");
+    var hamburgerMenu = document.querySelector('.hamburger-menu');
+    var isOutsideMenu = !navbar.contains(event.target) && !hamburgerMenu.contains(event.target);
+
+    if (navbar.classList.contains('active') && isOutsideMenu) {
+        navbar.classList.remove('active');
+    }
+});
+
+document.querySelectorAll('#navbar a').forEach(link => {
+    link.addEventListener('click', function() {
+        var navbar = document.getElementById("navbar");
+        navbar.classList.remove('active');
+        // Additional logic if needed for other links
+    });
+});
+
+// Ensure the menu is shown/hidden based on screen size
+function adjustMenuVisibility() {
+    var navbar = document.getElementById("navbar");
+    if (window.innerWidth < 768) {
+        navbar.classList.remove('active');
+    } else {
+        navbar.classList.add('active');
+    }
+}
+
+document.addEventListener('DOMContentLoaded', adjustMenuVisibility);
+window.addEventListener('resize', adjustMenuVisibility);
+
+
+
+
+
+
+
+
+
+
+  // --- Typewriter Effect for Phrases ---
+  const phrases = [
+    "Send & receive crypto instantly.",
+    "Snag Incredible Deals on Premium Domains: A Treasure Trove Awaits!",
+    "Your Next Digital Asset is Just a Click Away: Hassle-Free and Forever Yours.",
+    "No renewal fees",
+    "Discover Fresh Picks Every Week: Dive into Our Ever-Growing Domain Selection!",
+  ];
+
+  let currentPhrase = 0;
+  let currentChar = 0;
+  let isDeleting = false;
+  let typewriterTextElement = document.getElementById('typewriter-text');
+
+  // Typing effect logic
+  function type() {
+    const text = phrases[currentPhrase].substring(0, currentChar);
+    typewriterTextElement.innerHTML = text;
+
+    // Logic to determine whether to add or delete characters
+    if (!isDeleting) {
+      if (currentChar < phrases[currentPhrase].length) {
+        currentChar++;
+        setTimeout(type, 200);
+      } else {
+        setTimeout(() => { isDeleting = true; type(); }, 3000);
+      }
+    } else {
+      if (currentChar > 0) {
+        currentChar--;
+        setTimeout(type, 100);
+      } else {
+        isDeleting = false;
+        currentPhrase = (currentPhrase + 1) % phrases.length;
+        setTimeout(type, 500);
+      }
+    }
+  }
+
+  type();
+
+  // --- Slideshow Functionality ---
+  let slideIndex = 0;
+  showSlides();
+
+  // Function to cycle through slides
+  function showSlides() {
+    let slides = document.getElementsByClassName("slide");
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    slideIndex++;
+    if (slideIndex > slides.length) { slideIndex = 1 }
+    slides[slideIndex - 1].style.display = "flex";
+    setTimeout(showSlides, 9000); // Change slide every 9 seconds
+  }
+
+  // --- Carousel Control ---
+  let currentIndex = 0;
+
+  // Function to control carousel navigation
+  function slideCarousel(direction) {
+    const totalItems = 18;
+    const itemsPerPage = 3;
+
+    if (direction === 'next') {
+      if (currentIndex < totalItems - itemsPerPage) {
+        currentIndex += itemsPerPage;
+      }
+    } else {
+      if (currentIndex > 0) {
+        currentIndex -= itemsPerPage;
+      }
+    }
+
+    const carousel = document.querySelector('.carousel');
+    carousel.style.transform = `translateX(-${(100 / itemsPerPage) * currentIndex}%)`;
+  }
+
+  // --- Fetch and Update Matic to USD Prices ---
+  function updateMaticUSDPrices(maticToUsdRate) {
+    document.querySelectorAll('.matic-price').forEach(element => {
+      const maticAmount = parseFloat(element.textContent.split(' ')[0]);
+      const usdPrice = (maticAmount * maticToUsdRate).toFixed(2);
+      element.nextElementSibling.textContent = `$${usdPrice} USD`;
+    });
+  }
+
+  function fetchMaticPrice() {
+    fetch('https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=usd')
+      .then(response => response.json())
+      .then(data => {
+        const maticToUsdRate = data['matic-network'].usd;
+        updateMaticUSDPrices(maticToUsdRate);
+      })
+      .catch(error => {
+        console.error('Error fetching Matic price:', error);
+        document.querySelectorAll('.usd-price').forEach(element => {
+          element.textContent = 'Error loading price';
+        });
+      });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    fetchMaticPrice();
+    setInterval(fetchMaticPrice, 60000); // Update every minute
+  });
+
+  // --- Fetch and Update Ethereum to USD Prices ---
+  function updateUSDPrices(ethToUsdRate) {
+    document.querySelectorAll('.usd-price').forEach(usdPriceElement => {
+      const ethPriceElement = usdPriceElement.previousElementSibling;
+      const ethPrice = parseFloat(ethPriceElement.textContent);
+      const usdPrice = (ethPrice * ethToUsdRate).toFixed(2);
+      usdPriceElement.textContent = `$${usdPrice} USD`;
+    });
+  }
+
+  function fetchEthPrice() {
+    fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText);
+        }
+        return response.json();
+      })
+      .then(data => {
+        updateUSDPrices(data.ethereum.usd);
+      })
+      .catch(error => {
+        console.error('There has been a problem with your fetch operation:', error);
+        document.querySelectorAll('.usd-price').forEach(element => {
+          element.textContent = 'Error loading price';
+        });
+      });
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    fetchEthPrice();
+    setInterval(fetchEthPrice, 60000); // Update every minute
+  });
+
+
+
+
+
+// Function to update Matic price based on USD within GorillaSplay section
+function updateMaticPriceForGorillaSplay(usdToMaticRate) {
+  document.querySelectorAll('#gorillaSplay .domain-container').forEach(container => {
+    const usdPriceElement = container.querySelector('.usd-price');
+    const maticPriceElement = container.querySelector('.matic-price');
+    const usdPrice = parseFloat(usdPriceElement.textContent.replace('$', ''));
+    const maticAmount = (usdPrice / usdToMaticRate).toFixed(2);
+    maticPriceElement.textContent = `${maticAmount} MATIC`;
+  });
+}
+
+// Function to update USD price based on ETH within GorillaSplay section
+function updateUsdPriceForGorillaSplay(ethToUsdRate) {
+  document.querySelectorAll('#gorillaSplay .domain-container').forEach(container => {
+    const ethPriceElement = container.querySelector('.eth-price');
+    const ethPrice = parseFloat(ethPriceElement.textContent.split(' ')[0]);
+    const usdPrice = (ethPrice * ethToUsdRate).toFixed(2);
+    container.querySelector('.usd-price').textContent = `$${usdPrice} USD`;
+  });
+}
+
+// Call this function to update prices in the GorillaSplay section
+function fetchAndUpdatePricesForGorillaSplay() {
+  fetch('https://api.coingecko.com/api/v3/simple/price?ids=matic-network&vs_currencies=usd')
+    .then(response => response.json())
+    .then(data => {
+      const maticToUsdRate = data['matic-network'].usd;
+      updateMaticPriceForGorillaSplay(maticToUsdRate);
+    });
+
+  fetch('https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd')
+    .then(response => response.json())
+    .then(data => {
+      const ethToUsdRate = data.ethereum.usd;
+      updateUsdPriceForGorillaSplay(ethToUsdRate);
+    });
+}
+
+// Initialize the prices when the page loads
+document.addEventListener('DOMContentLoaded', function() {
+  fetchAndUpdatePricesForGorillaSplay();
+  // You can also set intervals if you want to auto-refresh the prices
+  // setInterval(fetchAndUpdatePricesForGorillaSplay, 60000); // Update every minute
+});
+
+
+
+ 
+</script>
+
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
